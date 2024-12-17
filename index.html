@@ -4,7 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio Digital</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <!-- Biblioteca para QR Code -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
@@ -12,29 +16,29 @@
     <!-- Logo -->
     <img src="https://github.com/JessicaLPontes/cardapiodigital/blob/main/logo.png?raw=true" alt="Logo do Restaurante" class="logo">
     
-    <!-- Título -->
+    
     <h1>Bem-vindo ao Nosso Cardápio Digital</h1>
+    <p>Escaneie o QR Code abaixo para acessar o cardápio ou clique no botão.</p>
 
     <!-- QR Code -->
-    <h2>Escaneie o QR Code abaixo para ver o cardápio:</h2>
     <div id="qrcode"></div>
     
-    <!-- Link direto -->
-    <p>
-      <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank">👉 Acesse o cardápio aqui 👈</a>
-    </p>
+    
+    <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" class="link-button">
+      👉 Acesse o Cardápio Aqui 👈
+    </a>
   </div>
 
-  <!-- Script para gerar o QR Code -->
+ 
   <script>
     const qrCodeContainer = document.getElementById("qrcode");
     const cardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
 
     const qrCode = new QRCode(qrCodeContainer, {
       text: cardapioLink,
-      width: 128,
-      height: 128,
-      colorDark: "#000000",
+      width: 150,
+      height: 150,
+      colorDark: "#333",
       colorLight: "#ffffff",
       correctLevel: QRCode.CorrectLevel.H
     });
