@@ -1,45 +1,79 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
   background-color: #f9f9f9;
-  text-align: center;
   color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  padding: 20px;
 }
 
 .container {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 500px;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px 20px;
+  max-width: 400px;
+  width: 100%;
 }
 
 .logo {
-  max-width: 150px;
-  margin: 10px auto;
+  max-width: 120px;
+  margin-bottom: 20px;
 }
 
-h1, h2 {
-  font-weight: bold;
-  color: #444;
-  font-size: 1.2em; 
+h1 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #4CAF50;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
 }
 
 #qrcode {
-  margin: 20px auto;
-  display: flex;         
+  display: flex;
   justify-content: center;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
 }
 
-a {
+.link-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
   text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-  font-size: 0.9em; 
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
-a:hover {
-  color: #0056b3;
+.link-button:hover {
+  background-color: #388E3C;
+  transform: scale(1.05);
+}
+
+#qrcode canvas {
+  transition: transform 0.3s ease;
+}
+
+#qrcode:hover canvas {
+  transform: scale(1.1);
 }
