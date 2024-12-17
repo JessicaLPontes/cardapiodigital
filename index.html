@@ -5,22 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio Digital</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <h1>Cardápio Digital</h1>
-    <ul class="menu">
-      <li>🍔 Hambúrguer - R$ 20,00</li>
-      <li>🍕 Pizza - R$ 35,00</li>
-      <li>🥗 Salada - R$ 15,00</li>
-      <li>🥤 Refrigerante - R$ 5,00</li>
-    </ul>
+    <!-- Logo -->
+    <img src="logo.png" alt="Logo do Restaurante" class="logo">
+    
+    <!-- Título -->
+    <h1>Bem-vindo ao Nosso Cardápio Digital</h1>
 
-    <h2>Escaneie o QR Code para acessar o cardápio</h2>
+    <!-- QR Code -->
+    <h2>Escaneie o QR Code abaixo para ver o cardápio:</h2>
     <div id="qrcode"></div>
+    
+    <!-- Link direto -->
+    <p>
+      <a href="cardapio.png" target="_blank">👉 Acesse o cardápio aqui 👈</a>
+    </p>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script src="script.js"></script>
+  <!-- Script para gerar o QR Code -->
+  <script>
+    const qrCodeContainer = document.getElementById("qrcode");
+    const cardapioLink = "cardapio.png"; // Caminho para a imagem do cardápio
+
+    const qrCode = new QRCode(qrCodeContainer, {
+      text: cardapioLink,
+      width: 128,
+      height: 128,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+  </script>
 </body>
 </html>
