@@ -24,16 +24,20 @@ body {
 h1, h2 {
   font-weight: bold;
   color: #444;
+  font-size: 1.2em; 
 }
 
 #qrcode {
   margin: 20px auto;
+  display: flex;         
+  justify-content: center;
 }
 
 a {
   text-decoration: none;
   color: #007bff;
   font-weight: bold;
+  font-size: 0.9em; 
 }
 
 a:hover {
