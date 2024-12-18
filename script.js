@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Exibe o modal de senha
   uploadBtn.addEventListener("click", () => {
-    passwordModal.style.display = "block";
+    passwordModal.style.display = "flex";
   });
 
   // Fecha o modal
