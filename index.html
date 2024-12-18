@@ -18,18 +18,20 @@
     
     <!-- Título -->
     <h1>Cardápio Digital</h1>
-    <p>Faça upload do cardápio e gere seu QR Code:</p>
-
-    <!-- Upload do Cardápio -->
-    <input type="file" id="upload" accept="image/*" />
-    <button id="generate-btn">Gerar QR Code</button>
+    <p>Escaneie o QR Code para acessar o cardápio padrão ou faça upload de um novo cardápio:</p>
 
     <!-- QR Code -->
     <div id="qrcode"></div>
+
+    <!-- Upload do Cardápio -->
+    <input type="file" id="upload" accept="image/*" />
+    <button id="generate-btn">Atualizar QR Code</button>
     
-    <!-- Link direto -->
+    <!-- Link direto para o cardápio -->
     <p>
-      <a id="cardapio-link" href="#" target="_blank" class="link-button" style="display: none;"> Ver Cardápio </a>
+      <a id="cardapio-link" href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" class="link-button">
+        Ver Cardápio Padrão
+      </a>
     </p>
   </div>
 
@@ -40,28 +42,38 @@
     const generateBtn = document.getElementById("generate-btn");
     const cardapioLink = document.getElementById("cardapio-link");
 
+    // Link padrão do cardápio
+    const defaultCardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
+
+    // Função para gerar QR Code
+    function generateQRCode(link) {
+      qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
+      new QRCode(qrCodeContainer, {
+        text: link,
+        width: 150,
+        height: 150,
+        colorDark: "#ffffff",
+        colorLight: "#007BFF", // Azul claro para combinar com o tema
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    }
+
+    // Gerar QR Code inicial com o link padrão
+    generateQRCode(defaultCardapioLink);
+
+    // Atualizar QR Code ao fazer upload de uma nova imagem
     generateBtn.addEventListener("click", () => {
       const file = uploadInput.files[0];
       if (!file) {
-        alert("Por favor, envie uma imagem do cardápio!");
+        alert("Nenhum arquivo foi enviado! O QR Code continuará com o cardápio padrão.");
         return;
       }
 
       // Gerar URL para o arquivo enviado
       const fileURL = URL.createObjectURL(file);
       cardapioLink.href = fileURL;
-      cardapioLink.style.display = "inline-block"; // Exibir o link do cardápio
-
-      // Gerar o QR Code com o link do arquivo
-      qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
-      new QRCode(qrCodeContainer, {
-        text: fileURL,
-        width: 150,
-        height: 150,
-        colorDark: "#ffffff",
-        colorLight: "#007BFF",
-        correctLevel: QRCode.CorrectLevel.H
-      });
+      cardapioLink.textContent = " Ver Novo Cardápio "; // Alterar texto do link
+      generateQRCode(fileURL); // Gerar QR Code com o link do arquivo
     });
   </script>
 </body>
