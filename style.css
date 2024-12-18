@@ -1,131 +1,75 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: url('https://source.unsplash.com/1600x900/?restaurant') no-repeat center center/cover;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-  padding: 20px;
-}
-
-.container {
-  background: rgba(0, 123, 255, 0.8);
-  border-radius: 15px;
-  padding: 30px 20px;
-  max-width: 400px;
-  width: 100%;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.logo {
-  max-width: 120px;
-  margin-bottom: 20px;
-}
-
-h1 {
-  font-size: 1.8em;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1em;
-  margin-bottom: 20px;
-}
-
-#qrcode {
-  display: flex;
-  justify-content: center;
-  margin: 20px auto;
-  padding: 10px;
-  background-color: #ffffff;
-  border-radius: 8px;
-}
-
-.link-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  color: #007BFF;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.link-button:hover {
-  background-color: #0056b3;
-  color: #fff;
-  transform: scale(1.05);
-}
-
-/* Ícone de upload no canto superior direito */
+/* Estilos para o ícone de upload no canto superior */
 .upload-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
-.upload-icon img {
-  width: 25px;
-  height: 25px;
-  filter: invert(1); /* Branco */
-  transition: transform 0.3s ease;
+.upload-icon:hover {
+  background-color: #0056b3;
 }
 
-.upload-icon img:hover {
-  transform: scale(1.2);
-}
-
-/* Modal de senha */
-#password-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  z-index: 10;
-}
-
-#password-modal.hidden {
+.hidden {
   display: none;
 }
 
-#password-modal input {
-  margin: 10px 0;
-  padding: 10px;
-  border: 2px solid #007BFF;
-  border-radius: 8px;
-  width: 100%;
+/* Estilos do modal de senha */
+.password-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#password-modal button {
-  padding: 10px 20px;
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Estilos do QR Code */
+#qrcode {
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* Estilos para o link do cardápio */
+#cardapio-link {
+  display: inline-block;
   background-color: #007BFF;
-  color: #fff;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+  margin-top: 20px;
 }
 
-#password-modal button:hover {
+#cardapio-link:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#cardapio-link:active {
+  background-color: #004085;
 }
