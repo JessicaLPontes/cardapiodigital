@@ -18,12 +18,13 @@ body {
 }
 
 .container {
-  background: rgba(0, 123, 255, 0.8); /* Fundo azul translúcido */
+  background: rgba(0, 123, 255, 0.8);
   border-radius: 15px;
   padding: 30px 20px;
   max-width: 400px;
   width: 100%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .logo {
@@ -40,25 +41,6 @@ h1 {
 p {
   font-size: 1em;
   margin-bottom: 20px;
-}
-
-.upload-button {
-  display: inline-block;
-  margin: 15px 0;
-  padding: 10px 20px;
-  background-color: transparent;
-  color: #ffffff;
-  font-weight: bold;
-  border: 2px solid #ffffff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.upload-button:hover {
-  background-color: #ffffff;
-  color: #007BFF;
-  transform: scale(1.05);
 }
 
 #qrcode {
@@ -86,4 +68,64 @@ p {
   background-color: #0056b3;
   color: #fff;
   transform: scale(1.05);
+}
+
+/* Ícone de upload no canto superior direito */
+.upload-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.upload-icon img {
+  width: 25px;
+  height: 25px;
+  filter: invert(1); /* Branco */
+  transition: transform 0.3s ease;
+}
+
+.upload-icon img:hover {
+  transform: scale(1.2);
+}
+
+/* Modal de senha */
+#password-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 10;
+}
+
+#password-modal.hidden {
+  display: none;
+}
+
+#password-modal input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #007BFF;
+  border-radius: 8px;
+  width: 100%;
+}
+
+#password-modal button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#password-modal button:hover {
+  background-color: #0056b3;
 }
