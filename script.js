@@ -1,61 +1,55 @@
-// Elementos do DOM
-const qrCodeContainer = document.getElementById("qrcode");
-const uploadInput = document.getElementById("upload");
-const uploadIcon = document.getElementById("upload-icon");
-const passwordModal = document.getElementById("password-modal");
-const passwordInput = document.getElementById("password");
-const confirmPasswordButton = document.getElementById("confirm-password");
-const cardapioLink = document.getElementById("cardapio-link");
+document.addEventListener('DOMContentLoaded', function() {
+  const passwordModal = document.getElementById('password-modal');
+  const passwordInput = document.getElementById('password');
+  const confirmPasswordBtn = document.getElementById('confirm-password');
+  const uploadIcon = document.getElementById('upload-icon');
+  const uploadInput = document.getElementById('upload');
+  const cardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true"; // Link do cardápio original
+  const qrCodeContainer = document.getElementById('qrcode');
 
-// Link padrão cardápio
-const defaultCardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
-
-// Função para gerar QR Code
-function generateQRCode(link) {
-  qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
+  // Gerar QR Code com o link inicial
   new QRCode(qrCodeContainer, {
-    text: link,
-    width: 150,
-    height: 150,
-    colorDark: "#ffffff",
-    colorLight: "#007BFF", // Azul claro para combinar com o tema
+    text: cardapioLink,
+    width: 128,
+    height: 128,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
     correctLevel: QRCode.CorrectLevel.H
   });
-}
 
-// Gerar QR Code inicial com o link padrão
-generateQRCode(defaultCardapioLink);
+  // Função para mostrar o modal de senha ao clicar no ícone de upload
+  uploadIcon.addEventListener('click', function() {
+    passwordModal.classList.remove('hidden');
+  });
 
-// Exibir modal para senha ao clicar no ícone
-uploadIcon.addEventListener("click", () => {
-  passwordInput.value = ""; // Limpar senha antes de exibir o modal
-  passwordModal.classList.remove("hidden");
-});
+  // Função para verificar a senha e liberar o campo de upload
+  confirmPasswordBtn.addEventListener('click', function() {
+    if (passwordInput.value === "1234") {
+      passwordModal.classList.add('hidden');
+      uploadInput.classList.remove('hidden'); // Mostrar campo de upload após senha correta
+    } else {
+      alert("Senha incorreta!");
+    }
+    passwordInput.value = ''; // Limpar campo de senha
+  });
 
-// Verificar senha e habilitar upload
-confirmPasswordButton.addEventListener("click", () => {
-  const password = passwordInput.value;
-  if (password === "1234") {
-    passwordModal.classList.add("hidden");
-    passwordInput.value = ""; // Limpar senha após confirmação
-    uploadInput.click(); // Abrir seletor de arquivos diretamente
-  } else {
-    alert("Senha incorreta! Tente novamente.");
-    passwordInput.value = ""; // Limpar senha em caso de erro
-  }
-});
-
-// Atualizar QR Code automaticamente ao fazer upload de uma nova imagem
-uploadInput.addEventListener("change", () => {
-  const file = uploadInput.files[0];
-  if (!file) {
-    alert("Por favor, envie um arquivo válido!");
-    return;
-  }
-
-  // Gerar URL para o arquivo enviado
-  const fileURL = URL.createObjectURL(file);
-  cardapioLink.href = fileURL;
-  cardapioLink.textContent = "👉 Ver Novo Cardápio 👈"; // Alterar texto do link
-  generateQRCode(fileURL); // Gerar QR Code com o link do arquivo
+  // Ao fazer o upload de uma nova imagem, gerar um novo QR Code
+  uploadInput.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const newCardapioLink = e.target.result;
+        new QRCode(qrCodeContainer, {
+          text: newCardapioLink,
+          width: 128,
+          height: 128,
+          colorDark: "#000000",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.H
+        });
+      };
+      reader.readAsDataURL(file); // Lê a imagem e converte para URL
+    }
+  });
 });
