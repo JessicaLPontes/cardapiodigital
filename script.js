@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardapioLink = document.getElementById("cardapio-link").querySelector("a");
 
   const DEFAULT_CARDAPIO = "Cardápio.png"; // Link fixo inicial
+  let currentCardapio = DEFAULT_CARDAPIO; // Mantém o cardápio atual
 
   // Função para gerar o QR Code
   const generateQRCode = (link) => {
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Gera o QR Code inicial
-  generateQRCode(DEFAULT_CARDAPIO);
+  generateQRCode(currentCardapio);
 
   // Exibe o modal de senha
   uploadBtn.addEventListener("click", () => {
@@ -54,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const file = event.target.files[0];
     if (file) {
       const newCardapioURL = URL.createObjectURL(file); // Cria URL local para o arquivo
+      currentCardapio = newCardapioURL; // Atualiza o cardápio atual
       cardapioLink.href = newCardapioURL; // Atualiza o link do cardápio
       generateQRCode(newCardapioURL); // Atualiza o QR Code
       alert("Cardápio atualizado com sucesso!");
