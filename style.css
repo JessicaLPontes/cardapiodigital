@@ -1,13 +1,21 @@
+/* Configuração geral */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
   background-color: #f0f8ff; /* Azul claro */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Centraliza verticalmente */
 }
 
 .container {
-  margin: 20px auto;
+  margin: auto;
   width: 90%;
   max-width: 600px;
+  text-align: center;
 }
 
 .logo {
@@ -21,8 +29,6 @@ h1, h2 {
 
 #qrcode {
   margin: 20px auto;
-  display: flex;
-  justify-content: center;
 }
 
 button, a {
@@ -44,7 +50,7 @@ button:hover, a:hover {
 
 /* Botão de upload pequeno */
 .small-upload-btn {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   padding: 5px;
