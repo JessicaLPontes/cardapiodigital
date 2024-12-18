@@ -16,31 +16,52 @@
     <!-- Logo -->
     <img src="https://github.com/JessicaLPontes/cardapiodigital/blob/main/logo.png?raw=true" alt="Logo do Restaurante" class="logo">
     
-    
-    <h1>Bem-vindo ao Nosso Cardápio Digital</h1>
-    <p>Escaneie o QR Code abaixo para acessar o cardápio ou clique no botão.</p>
+    <!-- Título -->
+    <h1>Cardápio Digital</h1>
+    <p>Faça upload do cardápio e gere seu QR Code:</p>
+
+    <!-- Upload do Cardápio -->
+    <input type="file" id="upload" accept="image/*" />
+    <button id="generate-btn">Gerar QR Code</button>
 
     <!-- QR Code -->
     <div id="qrcode"></div>
     
-    
-    <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" class="link-button">
-      👉 Acesse o Cardápio Aqui 👈
-    </a>
+    <!-- Link direto -->
+    <p>
+      <a id="cardapio-link" href="#" target="_blank" class="link-button" style="display: none;"> Ver Cardápio </a>
+    </p>
   </div>
 
- 
+  <!-- Script para gerar o QR Code -->
   <script>
     const qrCodeContainer = document.getElementById("qrcode");
-    const cardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
+    const uploadInput = document.getElementById("upload");
+    const generateBtn = document.getElementById("generate-btn");
+    const cardapioLink = document.getElementById("cardapio-link");
 
-    const qrCode = new QRCode(qrCodeContainer, {
-      text: cardapioLink,
-      width: 150,
-      height: 150,
-      colorDark: "#333",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H
+    generateBtn.addEventListener("click", () => {
+      const file = uploadInput.files[0];
+      if (!file) {
+        alert("Por favor, envie uma imagem do cardápio!");
+        return;
+      }
+
+      // Gerar URL para o arquivo enviado
+      const fileURL = URL.createObjectURL(file);
+      cardapioLink.href = fileURL;
+      cardapioLink.style.display = "inline-block"; // Exibir o link do cardápio
+
+      // Gerar o QR Code com o link do arquivo
+      qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
+      new QRCode(qrCodeContainer, {
+        text: fileURL,
+        width: 150,
+        height: 150,
+        colorDark: "#ffffff",
+        colorLight: "#007BFF",
+        correctLevel: QRCode.CorrectLevel.H
+      });
     });
   </script>
 </body>
