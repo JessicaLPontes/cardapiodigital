@@ -1,162 +1,72 @@
-/* Resetando margens e padding padrão */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Estilos gerais do body e fundo */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Container centralizado */
-.container {
-  background-color: white;
-  padding: 20px;
   text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f0f8ff; /* Azul claro */
+}
+
+.container {
+  margin: 20px auto;
+  width: 90%;
   max-width: 600px;
-  width: 100%;
-  position: relative;
 }
 
-/* Logo */
 .logo {
-  max-width: 150px;
+  width: 100px;
   margin-bottom: 20px;
 }
 
-/* Estilo do título principal */
-h1 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 15px;
+h1, h2 {
+  color: #0056b3; /* Azul escuro */
 }
 
-/* Estilo do subtítulo */
-h2 {
-  color: #666;
-  font-size: 1.25rem;
-  margin-bottom: 20px;
+#qrcode {
+  margin: 20px auto;
 }
 
-/* Estilos do QR Code */
-.qrcode-container {
-  margin: 0 auto 20px auto;
-  display: flex;
-  justify-content: center;
-}
-
-/* Estilo do link de acessar cardápio */
-#cardapio-link {
+button, a {
   display: inline-block;
-  background-color: #007BFF;
-  color: white;
-  padding: 12px 20px;
-  font-size: 18px;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #0056b3;
+  border: none;
   border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-#cardapio-link:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-#cardapio-link:active {
-  background-color: #004085;
-}
-
-/* Estilo do botão de upload (ícone de upload no canto superior direito) */
-.upload-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
-  background-color: #007BFF;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  font-size: 24px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  text-decoration: none;
 }
 
-.upload-icon:hover {
-  background-color: #0056b3;
+button:hover, a:hover {
+  background-color: #003f7f;
 }
 
-/* Estilo do modal de senha */
-.password-modal {
+/* Modal */
+.modal {
+  display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
-  background-color: white;
+  background-color: #fff;
+  margin: 15% auto;
   padding: 20px;
+  width: 80%;
+  max-width: 400px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   text-align: center;
-  width: 300px;
 }
 
-.modal-content label {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #333;
-}
-
-.password-input {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Estilo do botão no modal */
-.button {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 18px;
+  color: #555;
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.button:hover {
-  background-color: #0056b3;
-}
-
-.button:active {
-  background-color: #004085;
-}
-
-/* Ocultar elementos */
-.hidden {
-  display: none;
 }
