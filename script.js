@@ -7,7 +7,7 @@ const passwordInput = document.getElementById("password");
 const confirmPasswordButton = document.getElementById("confirm-password");
 const cardapioLink = document.getElementById("cardapio-link");
 
-// Link padrão do cardápio
+// Link padrão cardápio
 const defaultCardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
 
 // Função para gerar QR Code
