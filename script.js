@@ -24,24 +24,25 @@ document.addEventListener('DOMContentLoaded', function() {
     passwordModal.classList.remove('hidden');
   });
 
-  // Função para confirmar a senha e liberar o upload
+  // Confirmar senha e exibir upload
   confirmPasswordBtn.addEventListener('click', function() {
     if (passwordInput.value === "1234") {
       passwordModal.classList.add('hidden');
-      uploadInput.classList.remove('hidden'); // Mostrar campo de upload após senha correta
+      uploadInput.click(); // Abrir campo de upload diretamente após senha correta
     } else {
       alert("Senha incorreta!");
     }
-    passwordInput.value = ''; // Limpar o campo de senha após tentativa
+    passwordInput.value = ''; // Limpar senha
   });
 
-  // Ao fazer upload de uma nova imagem, gerar o QR Code com a nova URL
+  // Atualizar QR Code ao fazer upload
   uploadInput.addEventListener('change', function(event) {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = function(e) {
         const newCardapioLink = e.target.result;
+        qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
         new QRCode(qrCodeContainer, {
           text: newCardapioLink,
           width: 128,
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
           correctLevel: QRCode.CorrectLevel.H
         });
       };
-      reader.readAsDataURL(file); // Converte a imagem em URL
+      reader.readAsDataURL(file);
     }
   });
 });
