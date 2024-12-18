@@ -18,19 +18,19 @@
     
     <!-- Título -->
     <h1>Cardápio Digital</h1>
-    <p>Escaneie o QR Code para acessar o cardápio padrão ou faça upload de um novo cardápio:</p>
+    <p>Escaneie o QR Code para acessar o cardápio ou envie um novo arquivo para atualizar:</p>
 
     <!-- QR Code -->
     <div id="qrcode"></div>
 
     <!-- Upload do Cardápio -->
-    <input type="file" id="upload" accept="image/*" />
-    <button id="generate-btn">Atualizar QR Code</button>
-    
+    <label class="upload-button" for="upload">Alterar Cardápio</label>
+    <input type="file" id="upload" accept="image/*" style="display: none;" />
+
     <!-- Link direto para o cardápio -->
     <p>
       <a id="cardapio-link" href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" class="link-button">
-        Ver Cardápio Padrão
+        Ver Cardápio
       </a>
     </p>
   </div>
@@ -39,7 +39,6 @@
   <script>
     const qrCodeContainer = document.getElementById("qrcode");
     const uploadInput = document.getElementById("upload");
-    const generateBtn = document.getElementById("generate-btn");
     const cardapioLink = document.getElementById("cardapio-link");
 
     // Link padrão do cardápio
@@ -61,18 +60,18 @@
     // Gerar QR Code inicial com o link padrão
     generateQRCode(defaultCardapioLink);
 
-    // Atualizar QR Code ao fazer upload de uma nova imagem
-    generateBtn.addEventListener("click", () => {
+    // Atualizar QR Code automaticamente ao fazer upload de uma nova imagem
+    uploadInput.addEventListener("change", () => {
       const file = uploadInput.files[0];
       if (!file) {
-        alert("Nenhum arquivo foi enviado! O QR Code continuará com o cardápio padrão.");
+        alert("Por favor, envie um arquivo válido!");
         return;
       }
 
       // Gerar URL para o arquivo enviado
       const fileURL = URL.createObjectURL(file);
       cardapioLink.href = fileURL;
-      cardapioLink.textContent = " Ver Novo Cardápio "; // Alterar texto do link
+      cardapioLink.textContent = "Ver Novo Cardápio"; // Alterar texto do link
       generateQRCode(fileURL); // Gerar QR Code com o link do arquivo
     });
   </script>
