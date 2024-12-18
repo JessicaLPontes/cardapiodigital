@@ -4,8 +4,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const confirmPasswordBtn = document.getElementById('confirm-password');
   const uploadIcon = document.getElementById('upload-icon');
   const uploadInput = document.getElementById('upload');
-  const cardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true"; // Link do cardápio original
   const qrCodeContainer = document.getElementById('qrcode');
+
+  // Link do cardápio inicial
+  const cardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
 
   // Gerar QR Code com o link inicial
   new QRCode(qrCodeContainer, {
@@ -17,12 +19,12 @@ document.addEventListener('DOMContentLoaded', function() {
     correctLevel: QRCode.CorrectLevel.H
   });
 
-  // Função para mostrar o modal de senha ao clicar no ícone de upload
+  // Exibir o modal de senha quando o ícone de upload for clicado
   uploadIcon.addEventListener('click', function() {
     passwordModal.classList.remove('hidden');
   });
 
-  // Função para verificar a senha e liberar o campo de upload
+  // Função para confirmar a senha e liberar o upload
   confirmPasswordBtn.addEventListener('click', function() {
     if (passwordInput.value === "1234") {
       passwordModal.classList.add('hidden');
@@ -30,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
       alert("Senha incorreta!");
     }
-    passwordInput.value = ''; // Limpar campo de senha
+    passwordInput.value = ''; // Limpar o campo de senha após tentativa
   });
 
-  // Ao fazer o upload de uma nova imagem, gerar um novo QR Code
+  // Ao fazer upload de uma nova imagem, gerar o QR Code com a nova URL
   uploadInput.addEventListener('change', function(event) {
     const file = event.target.files[0];
     if (file) {
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
           correctLevel: QRCode.CorrectLevel.H
         });
       };
-      reader.readAsDataURL(file); // Lê a imagem e converte para URL
+      reader.readAsDataURL(file); // Converte a imagem em URL
     }
   });
 });
