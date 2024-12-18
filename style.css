@@ -48,8 +48,10 @@ h2 {
 }
 
 /* Estilos do QR Code */
-#qrcode {
-  margin: 20px auto;
+.qrcode-container {
+  margin: 0 auto 20px auto;
+  display: flex;
+  justify-content: center;
 }
 
 /* Estilo do link de acessar cardápio */
@@ -107,14 +109,51 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal-content {
   background-color: white;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   text-align: center;
+  width: 300px;
+}
+
+.modal-content label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.password-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Estilo do botão no modal */
+.button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.button:active {
+  background-color: #004085;
 }
 
 /* Ocultar elementos */
