@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.querySelector(".close");
   const cardapioLink = document.getElementById("cardapio-link").querySelector("a");
 
-  const DEFAULT_CARDAPIO = "Cardápio.png"; // Link fixo inicial
+  const DEFAULT_CARDAPIO = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true"; // Link fixo inicial
   let currentCardapio = DEFAULT_CARDAPIO; // Mantém o cardápio atual
 
   // Função para gerar o QR Code
