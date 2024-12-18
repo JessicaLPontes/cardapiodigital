@@ -1,4 +1,78 @@
-/* Estilos para o ícone de upload no canto superior */
+/* Resetando margens e padding padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos gerais do body e fundo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container centralizado */
+.container {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+/* Logo */
+.logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+/* Estilo do título principal */
+h1 {
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+/* Estilo do subtítulo */
+h2 {
+  color: #666;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+/* Estilos do QR Code */
+#qrcode {
+  margin: 20px auto;
+}
+
+/* Estilo do link de acessar cardápio */
+#cardapio-link {
+  display: inline-block;
+  background-color: #007BFF;
+  color: white;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#cardapio-link:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#cardapio-link:active {
+  background-color: #004085;
+}
+
+/* Estilo do botão de upload (ícone de upload no canto superior direito) */
 .upload-icon {
   position: absolute;
   top: 20px;
@@ -12,7 +86,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 24px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
 }
@@ -21,11 +95,7 @@
   background-color: #0056b3;
 }
 
-.hidden {
-  display: none;
-}
-
-/* Estilos do modal de senha */
+/* Estilo do modal de senha */
 .password-modal {
   position: fixed;
   top: 0;
@@ -46,30 +116,7 @@
   text-align: center;
 }
 
-/* Estilos do QR Code */
-#qrcode {
-  margin: 20px auto;
-  text-align: center;
-}
-
-/* Estilos para o link do cardápio */
-#cardapio-link {
-  display: inline-block;
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  font-size: 18px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: background-color 0.3s, transform 0.3s;
-  margin-top: 20px;
-}
-
-#cardapio-link:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
-}
-
-#cardapio-link:active {
-  background-color: #004085;
+/* Ocultar elementos */
+.hidden {
+  display: none;
 }
