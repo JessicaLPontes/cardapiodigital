@@ -6,61 +6,6 @@
   <title>Cardápio Digital</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <style>
-    /* Estilos para o ícone de upload no canto superior */
-    .upload-icon {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 40px;
-      height: 40px;
-      background-color: #007BFF;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s;
-    }
-
-    .upload-icon:hover {
-      background-color: #0056b3;
-    }
-
-    .hidden {
-      display: none;
-    }
-    
-    /* Estilos do modal de senha */
-    .password-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: white;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    /* Estilos do QR Code */
-    #qrcode {
-      margin: 20px auto;
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -86,7 +31,7 @@
     <h2>Escaneie o QR Code abaixo para ver o cardápio:</h2>
     <div id="qrcode"></div>
     
-    <!-- Link direto -->
+    <!-- Link direto para o cardápio -->
     <p>
       <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" id="cardapio-link">👉 Acesse o cardápio aqui 👈</a>
     </p>
