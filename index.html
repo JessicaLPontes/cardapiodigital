@@ -4,108 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cardápio Digital</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Biblioteca para QR Code -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <div class="container">
-    <!-- Ícone do upload -->
-    <div class="upload-icon">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828919.png" alt="Upload Icon" id="upload-icon">
+    <!-- Ícone de Upload -->
+    <div id="upload-icon" class="upload-icon" title="Fazer upload do cardápio"></div>
+
+    <!-- Modal de senha -->
+    <div id="password-modal" class="password-modal hidden">
+      <div class="modal-content">
+        <label for="password">Digite a senha:</label>
+        <input type="password" id="password" />
+        <button id="confirm-password">Confirmar</button>
+      </div>
     </div>
 
     <!-- Logo -->
     <img src="https://github.com/JessicaLPontes/cardapiodigital/blob/main/logo.png?raw=true" alt="Logo do Restaurante" class="logo">
     
     <!-- Título -->
-    <h1>Cardápio Digital</h1>
-    <p>Escaneie o QR Code para acessar o cardápio</p>
+    <h1>Bem-vindo ao Nosso Cardápio Digital</h1>
 
     <!-- QR Code -->
+    <h2>Escaneie o QR Code abaixo para ver o cardápio:</h2>
     <div id="qrcode"></div>
-
-    <!-- Link direto para o cardápio -->
+    
+    <!-- Link direto -->
     <p>
-      <a id="cardapio-link" href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" class="link-button">
-        Ver Cardápio
-      </a>
+      <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" id="cardapio-link">👉 Acesse o cardápio aqui 👈</a>
     </p>
 
-    <!-- Campo para senha (modal invisível inicialmente) -->
-    <div id="password-modal" class="hidden">
-      <label for="password">Digite a senha:</label>
-      <input type="password" id="password" />
-      <button id="confirm-password">Confirmar</button>
-    </div>
-
-    <!-- Input de upload invisível -->
-    <input type="file" id="upload" accept="image/*" style="display: none;" />
+    <!-- Input para Upload de Arquivo -->
+    <input type="file" id="upload" class="hidden" accept="image/*">
   </div>
 
-  <!-- Script para gerar o QR Code -->
-  <script>
-    const qrCodeContainer = document.getElementById("qrcode");
-    const uploadInput = document.getElementById("upload");
-    const uploadIcon = document.getElementById("upload-icon");
-    const passwordModal = document.getElementById("password-modal");
-    const passwordInput = document.getElementById("password");
-    const confirmPasswordButton = document.getElementById("confirm-password");
-    const cardapioLink = document.getElementById("cardapio-link");
-
-    // Link padrão do cardápio
-    const defaultCardapioLink = "https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true";
-
-    // Função para gerar QR Code
-    function generateQRCode(link) {
-      qrCodeContainer.innerHTML = ""; // Limpar QR Code anterior
-      new QRCode(qrCodeContainer, {
-        text: link,
-        width: 150,
-        height: 150,
-        colorDark: "#ffffff",
-        colorLight: "#007BFF", // Azul claro para combinar com o tema
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-
-    // Gerar QR Code inicial com o link padrão
-    generateQRCode(defaultCardapioLink);
-
-    // Exibir modal para senha ao clicar no ícone
-    uploadIcon.addEventListener("click", () => {
-      passwordModal.classList.remove("hidden");
-    });
-
-    // Verificar senha e habilitar upload
-    confirmPasswordButton.addEventListener("click", () => {
-      const password = passwordInput.value;
-      if (password === "1234") {
-        passwordModal.classList.add("hidden");
-        uploadInput.click(); // Abrir seletor de arquivos diretamente
-      } else {
-        alert("Senha incorreta! Tente novamente.");
-        passwordInput.value = ""; // Limpar campo de senha
-      }
-    });
-
-    // Atualizar QR Code automaticamente ao fazer upload de uma nova imagem
-    uploadInput.addEventListener("change", () => {
-      const file = uploadInput.files[0];
-      if (!file) {
-        alert("Por favor, envie um arquivo válido!");
-        return;
-      }
-
-      // Gerar URL para o arquivo enviado
-      const fileURL = URL.createObjectURL(file);
-      cardapioLink.href = fileURL;
-      cardapioLink.textContent = "Ver Cardápio"; // Alterar texto do link
-      generateQRCode(fileURL); // Gerar QR Code com o link do arquivo
-    });
-  </script>
+  <!-- Vincular o arquivo JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
