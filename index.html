@@ -6,40 +6,40 @@
   <title>Cardápio Digital</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
   <div class="container">
-    <!-- Ícone de Upload no canto superior -->
-    <div id="upload-icon" class="upload-icon" title="Fazer upload do cardápio">+</div>
-
-    <!-- Modal de senha -->
-    <div id="password-modal" class="password-modal hidden">
-      <div class="modal-content">
-        <label for="password">Digite a senha para alterar o cardápio:</label>
-        <input type="password" id="password" class="password-input">
-        <button id="confirm-password" class="button">Confirmar</button>
-      </div>
-    </div>
-
     <!-- Logo -->
-    <img src="https://github.com/JessicaLPontes/cardapiodigital/blob/main/logo.png?raw=true" alt="Logo do Restaurante" class="logo">
+    <img src="logo.png" alt="Logo do Restaurante" class="logo">
     
     <!-- Título -->
     <h1>Bem-vindo ao Nosso Cardápio Digital</h1>
 
     <!-- QR Code -->
     <h2>Escaneie o QR Code abaixo para ver o cardápio:</h2>
-    <div id="qrcode" class="qrcode-container"></div>
+    <div id="qrcode"></div>
     
-    <!-- Link direto para o cardápio -->
-    <p>
-      <a href="https://github.com/JessicaLPontes/cardapiodigital/blob/main/Card%C3%A1pio.png?raw=true" target="_blank" id="cardapio-link">👉 Acesse o cardápio aqui 👈</a>
+    <!-- Link direto -->
+    <p id="cardapio-link">
+      <a href="Cardápio.png" target="_blank">👉 Acesse o cardápio aqui 👈</a>
     </p>
-
-    <!-- Input para Upload de Arquivo (oculto) -->
-    <input type="file" id="upload" class="hidden" accept="image/*">
+    
+    <!-- Botão de upload -->
+    <button id="upload-btn">📂 Atualizar Cardápio</button>
+    
+    <!-- Modal de senha -->
+    <div id="password-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h3>Digite a senha:</h3>
+        <input type="password" id="password-input">
+        <button id="confirm-password-btn">Confirmar</button>
+      </div>
+    </div>
+    
+    <!-- Input de upload oculto -->
+    <input type="file" id="file-input" accept="image/*" style="display: none;">
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
