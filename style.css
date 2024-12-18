@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
+  background: url('https://source.unsplash.com/1600x900/?restaurant') no-repeat center center/cover;
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,12 +18,12 @@ body {
 }
 
 .container {
-  background: #ffffff;
+  background: rgba(0, 123, 255, 0.8); /* Fundo azul translúcido */
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   padding: 30px 20px;
   max-width: 400px;
   width: 100%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .logo {
@@ -34,14 +34,39 @@ body {
 h1 {
   font-size: 1.8em;
   font-weight: 600;
-  color: #4CAF50;
   margin-bottom: 10px;
 }
 
 p {
   font-size: 1em;
-  color: #666;
   margin-bottom: 20px;
+}
+
+input[type="file"] {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #333;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #0069d9;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 #qrcode {
@@ -49,7 +74,7 @@ p {
   justify-content: center;
   margin: 20px auto;
   padding: 10px;
-  background-color: #f7f7f7;
+  background-color: #ffffff;
   border-radius: 8px;
 }
 
@@ -57,23 +82,16 @@ p {
   display: inline-block;
   margin-top: 15px;
   padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
+  background-color: #ffffff;
+  color: #007BFF;
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .link-button:hover {
-  background-color: #388E3C;
+  background-color: #0056b3;
+  color: #fff;
   transform: scale(1.05);
-}
-
-#qrcode canvas {
-  transition: transform 0.3s ease;
-}
-
-#qrcode:hover canvas {
-  transform: scale(1.1);
 }
