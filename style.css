@@ -1,4 +1,4 @@
-/* Centralizar tudo */
+/* Reset e estilo geral */
 body {
   font-family: Arial, sans-serif;
   text-align: center;
@@ -19,28 +19,53 @@ body {
   position: relative;     /* Para posicionar o botão de upload */
 }
 
+/* Botão clean de upload */
+.upload-icon-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #007bff; /* Azul padrão */
+  border: none;
+  border-radius: 50%;
+  background-image: url('https://cdn-icons-png.flaticon.com/512/748/748113.png'); /* Ícone de upload */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.upload-icon-btn:hover {
+  background-color: #0056b3; /* Azul mais escuro */
+}
+
+/* QR Code */
 #qrcode {
   margin: 20px auto;      /* Centraliza o QR Code */
 }
 
-button, a {
-  margin-top: 15px;       /* Espaçamento uniforme */
-  display: inline-block;  /* Centraliza os botões e links */
-}
-
-/* Botão de upload */
-#upload-btn {
-  position: absolute;
-  top: 10px;              /* No topo da página */
-  right: 50%;             /* Centraliza horizontalmente */
-  transform: translateX(50%); /* Ajusta posição */
-  background-color: transparent;
+/* Botões padrão */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
   border: none;
-  font-size: 24px;        /* Ícone maior */
+  border-radius: 5px;
   cursor: pointer;
 }
 
-/* Modal de senha */
+.blue-btn {
+  background-color: #007bff;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.blue-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Modal */
 .modal {
   display: none;          /* Oculto inicialmente */
   position: fixed;
@@ -58,6 +83,14 @@ button, a {
   padding: 20px;
   border-radius: 8px;
   text-align: center;
+}
+
+.modal-content input {
+  width: 80%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 .modal-content button {
